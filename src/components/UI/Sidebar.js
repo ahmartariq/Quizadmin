@@ -398,7 +398,7 @@ const Sidebar = (props) => {
                           </svg>
 
                           <p className="text-sm font-medium">Quiz</p>
-                          <p className={`${location.pathname === '/quiz' ?  '  bg-primary-200' : 'bg-primary-100'} rounded-full px-[11px]`} style={{marginLeft:"50%",fontSize:11,color:"white",opacity:0.4}} >
+                          <p className={`${location.pathname === '/quiz' ?  ' bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[8px] text-xl font-bold`} style={{marginLeft:"45%",fontSize:10,opacity:0.4}} >
                             {quiz.length}
                           </p>
                         </div>
@@ -444,7 +444,7 @@ const Sidebar = (props) => {
                             <path d="M6.375 9.91675C4.68481 9.9186 3.06438 10.5908 1.86924 11.786C0.674098 12.9811 0.00185284 14.6016 0 16.2917C0 16.4797 0.0746452 16.6599 0.207515 16.7927C0.340384 16.9256 0.520594 17.0002 0.7085 17.0002C0.896406 17.0002 1.07662 16.9256 1.20949 16.7927C1.34235 16.6599 1.417 16.4797 1.417 16.2917C1.417 15.6406 1.54526 14.9958 1.79444 14.3942C2.04363 13.7926 2.40887 13.246 2.86931 12.7856C3.32975 12.3251 3.87637 11.9599 4.47796 11.7107C5.07956 11.4615 5.72434 11.3332 6.3755 11.3332C7.02666 11.3332 7.67144 11.4615 8.27304 11.7107C8.87463 11.9599 9.42125 12.3251 9.88169 12.7856C10.3421 13.246 10.7074 13.7926 10.9566 14.3942C11.2057 14.9958 11.334 15.6406 11.334 16.2917C11.334 16.4797 11.4086 16.6599 11.5415 16.7927C11.6744 16.9256 11.8546 17.0002 12.0425 17.0002C12.2304 17.0002 12.4106 16.9256 12.5435 16.7927C12.6764 16.6599 12.751 16.4797 12.751 16.2917C12.7491 14.6014 12.0768 12.9808 10.8814 11.7856C9.68605 10.5905 8.06536 9.91834 6.375 9.91675Z" />
                           </svg>
                           <p className="text-sm font-medium">Users</p>
-                          <p className={`${location.pathname === '/users' ?  '  bg-primary-200' : 'bg-primary-100'} rounded-full px-[14.5px]`} style={{marginLeft:"50%",borderRadius: "50%",fontSize:11,color:"white",opacity:0.4,display:"center"}} >
+                          <p className={`${location.pathname === '/users' ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",borderRadius: "50%",fontSize:10,opacity:0.4,display:"center"}} >
                             {users.length}
                             </p>
                         </div>
@@ -470,7 +470,7 @@ const Sidebar = (props) => {
                             <path d="M10.5 10.7826C10.5 10.9705 10.4262 11.1507 10.295 11.2835C10.1637 11.4163 9.98564 11.491 9.79999 11.491H4.19999C4.01434 11.491 3.8363 11.4163 3.70502 11.2835C3.57375 11.1507 3.5 10.9705 3.5 10.7826C3.5 10.5948 3.57375 10.4146 3.70502 10.2818C3.8363 10.1489 4.01434 10.0743 4.19999 10.0743H9.79999C9.98564 10.0743 10.1637 10.1489 10.295 10.2818C10.4262 10.4146 10.5 10.5948 10.5 10.7826ZM7.69999 12.9076H4.19999C4.01434 12.9076 3.8363 12.9823 3.70502 13.1151C3.57375 13.2479 3.5 13.4281 3.5 13.616C3.5 13.8038 3.57375 13.984 3.70502 14.1168C3.8363 14.2497 4.01434 14.3243 4.19999 14.3243H7.69999C7.88564 14.3243 8.06369 14.2497 8.19496 14.1168C8.32624 13.984 8.39999 13.8038 8.39999 13.616C8.39999 13.4281 8.32624 13.2479 8.19496 13.1151C8.06369 12.9823 7.88564 12.9076 7.69999 12.9076ZM14 8.29285V14.3243C13.9989 15.2633 13.6298 16.1635 12.9736 16.8274C12.3175 17.4913 11.4279 17.8648 10.5 17.866H3.5C2.57208 17.8648 1.68249 17.4913 1.02635 16.8274C0.370217 16.1635 0.0011115 15.2633 0 14.3243V4.40765C0.0011115 3.46868 0.370217 2.5685 1.02635 1.90455C1.68249 1.24061 2.57208 0.867108 3.5 0.865983H6.66049C7.30422 0.864307 7.9419 0.991774 8.53665 1.24102C9.13139 1.49026 9.67142 1.85633 10.1255 2.31807L12.5643 4.78731C13.0208 5.24648 13.3828 5.79276 13.6293 6.3945C13.8757 6.99624 14.0017 7.64148 14 8.29285ZM9.13569 3.31965C8.91539 3.10372 8.66804 2.91797 8.39999 2.76715V5.82431C8.39999 6.01217 8.47374 6.19234 8.60501 6.32518C8.73629 6.45802 8.91434 6.53264 9.09999 6.53264H12.1212C11.9721 6.26149 11.7882 6.01142 11.5745 5.7889L9.13569 3.31965ZM12.6 8.29285C12.6 8.17598 12.5776 8.06406 12.5671 7.94931H9.09999C8.54303 7.94931 8.00889 7.72543 7.61507 7.32691C7.22124 6.9284 6.99999 6.3879 6.99999 5.82431V2.31594C6.88659 2.30532 6.77529 2.28265 6.66049 2.28265H3.5C2.94304 2.28265 2.4089 2.50653 2.01507 2.90505C1.62125 3.30356 1.4 3.84406 1.4 4.40765V14.3243C1.4 14.8879 1.62125 15.4284 2.01507 15.8269C2.4089 16.2254 2.94304 16.4493 3.5 16.4493H10.5C11.0569 16.4493 11.5911 16.2254 11.9849 15.8269C12.3787 15.4284 12.6 14.8879 12.6 14.3243V8.29285Z" />
                           </svg>
                           <p className="text-sm font-medium">News</p>
-                          <p className={`${location.pathname === '/news' ?  '  bg-primary-200' : 'bg-primary-100'} rounded-full px-[11px]`} style={{marginLeft:"50%",borderRadius: "50%",fontSize:11,color:"white",opacity:0.4,display:"center"}} >
+                          <p className={`${location.pathname === '/news' ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[9px] text-xl font-bold`} style={{marginLeft:"45%",borderRadius: "50%",fontSize:10,opacity:0.4,display:"center"}} >
                             {news.length}
                           </p>
 
@@ -518,7 +518,7 @@ const Sidebar = (props) => {
                             <div className="w-2 h-2 border border-white rounded-full" />
                           )}
                           <p className="text-sm font-medium">Quiz</p>
-                          <p className={`bg-primary-100 rounded-full px-[14.5px]`} style={{marginLeft:"50%",fontSize:11,color:"white",opacity:0.4}} >
+                          <p className={`bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10,opacity:0.4}} >
                             {quizCategories.length}
                           </p>         
                         </div>
@@ -535,7 +535,7 @@ const Sidebar = (props) => {
                             <div className="w-2 h-2 border border-white rounded-full" />
                           )}
                           <p className="text-sm font-medium">News</p>
-                          <p className={` bg-primary-100 rounded-full px-[14.5px]`} style={{marginLeft:"50%",fontSize:11,color:"white",opacity:0.4}} >
+                          <p className={` bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10,opacity:0.4}} >
                             {newsCategories.length}
                           </p>         
                         </div>
