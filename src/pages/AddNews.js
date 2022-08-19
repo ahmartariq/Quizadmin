@@ -15,7 +15,7 @@ import InputFile from "../components/UI/InputFile";
 import { useStateContext } from "../contexts/ContextProvider";
 
 export default function AddNews() {
-  const { updateCheck } = useStateContext;
+  const { updateCheck } = useStateContext();
 
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
@@ -51,7 +51,7 @@ export default function AddNews() {
         newsDate: Timestamp.fromDate(new Date(date)),
         date: new Date(),
       });
-      //updateCheck();
+      updateCheck();
       setShowModal(true);
     
     } catch (error) {

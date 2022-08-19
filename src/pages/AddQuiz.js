@@ -14,7 +14,7 @@ import InputFile from "../components/UI/InputFile";
 import { useStateContext } from "../contexts/ContextProvider";
 
 export default function AddQuiz() {
-  const { updateCheck } = useStateContext;
+  const { updateCheck } = useStateContext();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [filterValue, setFilterValue] = useState("");
@@ -56,7 +56,7 @@ export default function AddQuiz() {
         date: new Date(),
       });
       console.log("rases",res)
-      //updateCheck();
+      updateCheck();
       setShowModal(true);
     } catch (error) {
       console.log("4error",error);
