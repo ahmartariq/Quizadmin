@@ -63,16 +63,9 @@ export default function EditNews() {
     <div className="w-full min-h-screen sm:max-w-screen-2xl px-6 sm:px-8 xl:px-6 xl:py-8 sm:mx-auto">
       <section>
         <div className="mt-6 sm:mt-0 text-end">
-          <form className="relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
-            <input
-              type="text"
-              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-t-0 border-l-0 border-r-0 border-b-2 outline-none ring-0 focus:border-b-primary-dark focus:border-b-2 focus:ring-0"
-              placeholder="Search"
-              value={filterValue}
-              onChange={(e) => setFilterValue(e.target.value)}
-            />
-            <svg
-              className="object-contain w-4 h-4 absolute right-2 text-inherit "
+          <form className="pl-10 relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
+          <svg
+              className="object-contain w-4 h-4 text-inherit "
               width="19"
               height="19"
               viewBox="0 0 19 19"
@@ -85,17 +78,17 @@ export default function EditNews() {
                 fill="white"
               />
             </svg>
-
-            {/* <button
-                className="flex-shrink-0 px-4  text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                type="submit"
-              >
-                Filter
-              </button> */}
+            <input
+              type="text"
+              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-0 outline-none ring-0 focus:ring-0"
+              placeholder="Search"
+              value={filterValue}
+              onChange={(e) => setFilterValue(e.target.value)}
+            />
           </form>
         </div>
         <div className="my-8 sm:flex items-center justify-between w-full">
-          <div className="flex items-center">
+          <div className="pl-10 flex items-center">
             <svg
               className="w-8 h-8 text-secondary-300"
               viewBox="0 0 34 34"
@@ -147,21 +140,6 @@ export default function EditNews() {
               />
             </div>
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
-              <label className="">Answer Text</label>
-              <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter answer text
-              </p>
-            </div>
-            <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
-              <Input
-                placeholder={"Type something ..."}
-                value={answertext}
-                onChange={(e) => {
-                  setAnswertext(e.target.value);
-                }}
-              />
-            </div>
-            <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Thumbnail</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
                 Update thumbnail
@@ -173,6 +151,7 @@ export default function EditNews() {
                 onChange={async (e) => {
                   setSelectedImage(e.target.files[0]);
                 }}
+                placeholder={"Upload Thumbnail"}
               />
               <p className="mt-1 text-white text-sm text-opacity-70">
                 (Leave empty if you don't wish to change the image)
@@ -225,6 +204,7 @@ export default function EditNews() {
                 onChange={(e) => {
                   setDate(e.target.value);
                 }}
+                type={"date"}
               />
               <p className="mt-1 text-sm text-white text-opacity-50">
                 Format (MM/DD/YYYY)

@@ -25,7 +25,6 @@ const useFetch = (collectionName, check) => {
 
     fetchData();
   },[check]);
-  // console.log(data);
 
   return { data, isloading, errorMessage };
 };

@@ -42,11 +42,11 @@ export default function Users() {
       setFilter(event.target.value);
   }
   const menu = [
-    { name: "Image", col: "2", isSortable: false },
-    { name: "Name", value: "name", col: "2", isSortable: true },
+    { name: "#", col: "2", isSortable: false },
+    { name: "Image", value: "Image", col: "2", isSortable: true },
     { name: "Email", value: "email", col: "4", isSortable: true },
     { name: "Join Date", value: "joinDate", col: "2", isSortable: true },
-    { name: "Action", col: "2", isSortable: false, xPos: "center" },
+    { name: "Activity", col: "2", isSortable: false, xPos: "center" },
   ];
 
   useEffect(() => {
@@ -77,16 +77,9 @@ export default function Users() {
     <div className="w-full min-h-screen sm:max-w-screen-2xl px-6 sm:px-8 xl:px-0 xl:py-6 sm:mx-auto">
       <div className="">
         <div className="hidden xl:block mt-6 sm:mt-0 text-end">
-          <form className="relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
-            <input
-              type="text"
-              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-t-0 border-l-0 border-r-0 border-b-2 outline-none ring-0 focus:border-b-primary-dark focus:border-b-2 focus:ring-0"
-              placeholder="Search"
-              value={filter}
-              onChange={searchtext.bind(this)} 
-            />
-            <svg
-              className="object-contain w-4 h-4 absolute right-2 text-inherit "
+          <form className="pl-10 relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
+          <svg
+              className="object-contain w-4 h-4 text-inherit "
               width="19"
               height="19"
               viewBox="0 0 19 19"
@@ -99,10 +92,18 @@ export default function Users() {
                 fill="white"
               />
             </svg>
+            <input
+              type="text"
+              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-0 outline-none ring-0 focus:ring-0"
+              placeholder="Search ..."
+              value={filter}
+              onChange={searchtext.bind(this)} 
+            />
+            
           </form>
         </div>
         <div className="my-8 space-y-4 xl:space-y-0 xl:flex items-center justify-between w-full">
-          <div className="mb-6 sm:mb-0 flex items-center">
+          <div className="pl-10 mb-6 sm:mb-0 flex items-center">
             <svg
               className="w-8 h-8 text-secondary-300"
               viewBox="0 0 34 34"
@@ -161,8 +162,8 @@ export default function Users() {
             </button>
           </div>
         </div>
-        <div className="overflow-x-scroll scrollbar-thin scrollbar-thumb-neutral-600 w-full h-[70vh] shadow-2xl">
-          <div className="min-w-[760px] xl:w-full py-4 px-3 sm:px-4 w-full grid grid-cols-12 text-base text-left bg-primary-100">
+        <div className="w-full">
+          <div className="w-full xl:w-full py-6 px-3  grid grid-cols-12 text-base text-left bg-primary-100">
             {menu.map((item) => {
               return (
                 <h3
@@ -185,7 +186,7 @@ export default function Users() {
                         operator === "descending"
                           ? "rotate-180"
                           : operator === null
-                          ? "opacity-50"
+                          ? "opacity-100"
                           : "rotate-0 opacity-100"
                       } `}
                       viewBox="0 0 8 5"
@@ -200,7 +201,7 @@ export default function Users() {
                   ) : (
                     item.isSortable && (
                       <svg
-                        className={`h-2 w-2 opacity-50`}
+                        className={`h-2 w-2 opacity-100`}
                         viewBox="0 0 8 5"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -216,25 +217,28 @@ export default function Users() {
               );
             })}
           </div>
-          <div className="min-w-[760px] xl:w-full h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-600">
+          <div className="w-full xl:w-full ">
             {currentData.map((user) => {
               return (
                 <div
                   key={user.id}
-                  className={`w-full grid grid-cols-12 text-left hover:bg-primary-100 text-sm sm:text-base px-3 py-3 sm:px-4 sm:py-2 rounded${
+                  className={`w-full grid grid-cols-12 text-left hover:bg-primary-100 text-sm sm:text-base px-3 py-6 sm:px-4 group rounded ${
                     user.isDisabled ? "opacity-50" : "opacity-100"
                   } border-b border-b-primary-100 text-secondary-100 items-center`}
                 >
-                  <div className="col-span-2 flex items-center gap-2">
-                    <img
+                  <div className="col-span-2 flex items-center">
+                    <div className="h-5 w-5 bg-primary-100 rounded group-hover:bg-secondary-300" />
+                  </div>
+                  <div className="col-span-2 flex flex-row gap-2 items-center">
+                  <img
                       className="object-cover h-8 w-8 rounded-full"
                       src={image}
                       alt=""
                     />
+                  <p>{user.name}</p>
                   </div>
-                  <div className="col-span-2">{user.name}</div>
                   <p className="col-span-4 py-3 text-left">{user.email}</p>
-                  <div className="col-span-2">{new Date(user.date.seconds * 1000).toISOString().slice(11, 19)}</div>
+                  <div className="col-span-2">{new Date(user.date.seconds * 1000).toISOString().slice(0, 10)}</div>
                   <button
                     onClick={() => {
                       selectedItem !== null

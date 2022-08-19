@@ -17,7 +17,7 @@ const InputFile = ({ required, onChange, name, imageName, placeholder }) => {
           {imageName ? (
             <p className="text-white text-sm">{imageName}</p>
           ) : (
-            <p className="text-white text-opacity-50 text-xs">Upload Image</p>
+            <p className="text-white text-opacity-50 text-xs">{placeholder}</p>
           )}
         </div>
         <svg
@@ -38,23 +38,6 @@ const InputFile = ({ required, onChange, name, imageName, placeholder }) => {
           onChange={onChange}
         />
       </label>
-
-      {/* {isUploading ? (
-        <div className="grid place-content-center w-20">
-          <div>Loading...</div>
-        </div>
-      ) : (
-        <Button
-          type="button"
-          onClick={() => {
-            // setIsUploading(true);
-            onUpload();
-            // setIsUploading(true);
-          }}
-        >
-          {children}
-        </Button>
-      )} */}
     </div>
   );
 };

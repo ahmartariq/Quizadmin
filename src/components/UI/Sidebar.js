@@ -19,7 +19,6 @@ const Sidebar = (props) => {
   const location = useLocation();
   const { logout } = useAuth();
   const { currentUser } = useAuth();
-  console.log("cureegy",currentUser)
   return (
     <>
       {/* Mobile Sidebar */}
@@ -40,7 +39,7 @@ const Sidebar = (props) => {
                 props.setOpen(false);
               }}
               className="flex items-center justify-center"
-              to={"/"}
+              to={"/quiz"}
             >
               <svg
                 width="33"
@@ -89,7 +88,7 @@ const Sidebar = (props) => {
                   >
                     <div
                       className={`px-3 py-[14px] ${
-                        location.pathname === "/quiz"
+                        location.pathname === "/quiz" || location.pathname === "/edit-quiz" || location.pathname === "/add-quiz"
                           ? "text-secondary-300 bg-primary-100"
                           : "text-white"
                       } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -103,43 +102,10 @@ const Sidebar = (props) => {
                         <path d="M16.5427 3.28248L11.0124 0.570776C9.795 -0.177634 8.2798 -0.190914 7.05021 0.53604L1.45763 3.28248C1.43664 3.2933 1.41488 3.30487 1.39463 3.31721C0.0674424 4.09826 -0.393304 5.83877 0.36556 7.20475C0.622791 7.66782 1.00117 8.04724 1.45763 8.29987L3.00035 9.05635V12.8387C3.00126 14.53 4.07051 16.0242 5.63953 16.5268C6.73142 16.8519 7.8636 17.0111 9.00021 16.9992C10.1366 17.0123 11.2688 16.8545 12.3609 16.5307C13.9299 16.0281 14.9991 14.5338 15.0001 12.8425V9.05479L16.5 8.31684V14.6835C16.5 15.1098 16.8358 15.4554 17.25 15.4554C17.6642 15.4554 18 15.1098 18 14.6835V5.42064C18.005 4.51422 17.3096 3.67687 16.5427 3.28248ZM13.5001 12.8425C13.5004 13.8542 12.8627 14.749 11.9251 15.0525C10.9743 15.3321 9.98899 15.4678 9.00017 15.4554C8.01136 15.4678 7.02606 15.3321 6.07525 15.0525C5.13762 14.749 4.4999 13.8542 4.50029 12.8425V9.79198L6.98798 11.0116C7.6018 11.3868 8.30283 11.5839 9.01669 11.582C9.69618 11.587 10.3642 11.4018 10.9494 11.0463L13.5001 9.79195V12.8425ZM15.9 6.90657L10.2437 9.68543C9.45498 10.1581 8.47741 10.1447 7.70122 9.65069L2.1671 6.9413C1.55022 6.59894 1.31982 5.80671 1.65246 5.17185C1.76495 4.95714 1.93363 4.77915 2.13936 4.65801L7.76045 1.8946C8.54937 1.42299 9.52641 1.43635 10.3029 1.92934L15.8332 4.64104C16.24 4.87348 16.4944 5.31242 16.5 5.79119C16.5007 6.24471 16.2738 6.66646 15.9 6.90657Z" />
                       </svg>
 
-                      <p className="text-sm font-medium">Quiz
-                      
-                      
-                      
-                      
-                      </p>
-                      
+                      <p className="text-sm font-medium">Quiz</p>
                     </div>
                   </Link>
                 </li>
-                {/* <li className="">
-                  <Link
-                    onClick={() => {
-                      props.setShowBackdrop(false);
-                      props.setOpen(false);
-                    }}
-                    to={"/rating"}
-                  >
-                    <div
-                      className={`px-3 py-[14px] ${
-                        location.pathname === "/rating"
-                          ? "text-secondary-300 bg-primary-100"
-                          : "text-white"
-                      } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        viewBox="0 0 18 17"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M17.438 6.30378C17.2883 5.82701 16.9892 5.4111 16.5849 5.11762C16.1806 4.82413 15.6925 4.66866 15.193 4.67421H11.993L11.022 1.64616C10.8702 1.16841 10.5703 0.751395 10.1658 0.455454C9.76128 0.159513 9.27314 0 8.772 0C8.27086 0 7.78272 0.159513 7.37823 0.455454C6.97373 0.751395 6.67385 1.16841 6.522 1.64616L5.557 4.67421H2.357C1.8592 4.67506 1.3744 4.83328 0.971874 5.12627C0.56935 5.41926 0.269703 5.83203 0.115748 6.3056C-0.0382071 6.77916 -0.0385908 7.28929 0.114651 7.76309C0.267894 8.23688 0.56692 8.6501 0.969002 8.9437L3.569 10.8444L2.58 13.9094C2.42606 14.3851 2.42693 14.8974 2.58247 15.3725C2.73802 15.8477 3.04022 16.2612 3.44561 16.5537C3.851 16.8461 4.33867 17.0024 4.83847 17C5.33827 16.9976 5.82443 16.8367 6.227 16.5403L8.774 14.6647L11.322 16.5383C11.7243 16.8346 12.2102 16.9955 12.7098 16.998C13.2094 17.0005 13.6968 16.8444 14.1021 16.5522C14.5074 16.26 14.8095 15.8467 14.9651 15.3718C15.1207 14.8969 15.1217 14.3849 14.968 13.9094L13.979 10.8444L16.584 8.9437C16.9905 8.65345 17.2927 8.23999 17.446 7.76453C17.5992 7.28907 17.5954 6.77688 17.435 6.30378H17.438ZM15.723 7.76129L12.693 9.97906C12.5684 10.07 12.4757 10.198 12.4281 10.3447C12.3805 10.4915 12.3805 10.6496 12.428 10.7963L13.581 14.3616C13.6383 14.5423 13.637 14.7365 13.5775 14.9165C13.5179 15.0964 13.4031 15.253 13.2494 15.3639C13.0957 15.4748 12.9109 15.5343 12.7214 15.5339C12.5319 15.5336 12.3473 15.4734 12.194 15.3619L9.212 13.1612C9.08643 13.069 8.93475 13.0193 8.779 13.0193C8.62326 13.0193 8.47157 13.069 8.346 13.1612L5.364 15.3619C5.21075 15.4746 5.02577 15.5358 4.83559 15.5368C4.64541 15.5377 4.45981 15.4784 4.30543 15.3673C4.15105 15.2562 4.03582 15.099 3.97628 14.9183C3.91673 14.7377 3.91594 14.5428 3.974 14.3616L5.13 10.7963C5.17754 10.6496 5.17751 10.4915 5.12992 10.3447C5.08233 10.198 4.98962 10.07 4.865 9.97906L1.83 7.76129C1.67873 7.64868 1.56663 7.49139 1.50953 7.31161C1.45244 7.13184 1.45323 6.93867 1.5118 6.75937C1.57036 6.58007 1.68375 6.42371 1.83594 6.31234C1.98813 6.20098 2.17145 6.14025 2.36 6.13872H6.093C6.24851 6.13938 6.40019 6.09048 6.52605 5.99911C6.65191 5.90774 6.74542 5.77865 6.793 5.63055L7.922 2.09431C7.98142 1.91455 8.09597 1.75811 8.24938 1.64722C8.40279 1.53633 8.58724 1.47664 8.7765 1.47664C8.96577 1.47664 9.15022 1.53633 9.30362 1.64722C9.45703 1.75811 9.57158 1.91455 9.631 2.09431L10.765 5.63055C10.8126 5.77865 10.9061 5.90774 11.032 5.99911C11.1578 6.09048 11.3095 6.13938 11.465 6.13872H15.193C15.3816 6.14025 15.5649 6.20098 15.7171 6.31234C15.8693 6.42371 15.9826 6.58007 16.0412 6.75937C16.0998 6.93867 16.1006 7.13184 16.0435 7.31161C15.9864 7.49139 15.8743 7.64868 15.723 7.76129V7.76129Z" />
-                      </svg>
-                      <p className="text-sm font-medium">Rating</p>
-                    </div>
-                  </Link>
-                </li> */}
                 <li className="">
                   <Link
                     onClick={() => {
@@ -150,7 +116,7 @@ const Sidebar = (props) => {
                   >
                     <div
                       className={`px-3 py-[14px] ${
-                        location.pathname === "/users"
+                        location.pathname === "/users" || location.pathname === "/edit-user" || location.pathname === "/add-user"
                           ? "text-secondary-300 bg-primary-100"
                           : "text-white"
                       } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -179,7 +145,7 @@ const Sidebar = (props) => {
                   >
                     <div
                       className={`px-3 py-[14px] ${
-                        location.pathname === "/news"
+                        location.pathname === "/news" || location.pathname === "/add-news" || location.pathname === "/edit-news" 
                           ? "text-secondary-300 bg-primary-100"
                           : "text-white"
                       } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -200,9 +166,6 @@ const Sidebar = (props) => {
                 </li>
                 <li className="">
                   <button
-                    // onClick={() => {
-                    //   setIsOpen((prev) => !prev);
-                    // }}
                     className="w-full"
                   >
                     <div
@@ -331,15 +294,15 @@ const Sidebar = (props) => {
           props.setShowBackdrop(false);
         }}
       />
-      {/* Mobile Sidebar */}
+      {/*---------------- Mobile Sidebar ----------------*/}
 
-      {/* Desktop Sidebar */}
+      {/*---------------- Desktop Sidebar ---------------- */}
       <div className="hidden md:block md:z-40 fixed mx-auto bg-primary-500 border-r border-r-primary-100">
         <div className="hidden sm:flex sm:flex-col sm:gap-12 sm:text-3xl sm:min-h-full sm:max-w-72">
           <div className="w-full max-w-[280px]">
             <nav className="w-[17rem] p-5 h-screen justify-between flex flex-col">
               <div className="mt-4 mb-10">
-                <Link className="flex items-center justify-center" to={"/"}>
+                <Link className="flex items-center justify-center" to={"/quiz"}>
                   <svg
                     width="33"
                     height="35"
@@ -383,7 +346,7 @@ const Sidebar = (props) => {
                       <Link to={"/quiz"}>
                         <div
                           className={`px-3 py-[14px] ${
-                            location.pathname === "/quiz"
+                            location.pathname === "/quiz" || location.pathname === "/edit-quiz" || location.pathname === "/add-quiz"
                               ? "text-secondary-300 bg-primary-100"
                               : "text-white"
                           } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -398,38 +361,18 @@ const Sidebar = (props) => {
                           </svg>
 
                           <p className="text-sm font-medium">Quiz</p>
-                          <p className={`${location.pathname === '/quiz' ?  ' bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[8px] text-xl font-bold`} style={{marginLeft:"45%",fontSize:10,opacity:0.4}} >
+                          <p className={`${location.pathname === '/quiz' || location.pathname === "/edit-quiz" || location.pathname === "/add-quiz"
+                            ?  ' bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[8px] text-xl font-bold`} style={{marginLeft:"45%",fontSize:10}} >
                             {quiz.length}
                           </p>
                         </div>
                       </Link>
                     </li>
-                    {/* <li className="">
-                      <Link to={"/rating"}>
-                        <div
-                          className={`px-3 py-[14px] ${
-                            location.pathname === "/rating"
-                              ? "text-secondary-300 bg-primary-100"
-                              : "text-white"
-                          } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
-                        >
-                          <svg
-                            className="w-5 h-5"
-                            viewBox="0 0 18 17"
-                            fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M17.438 6.30378C17.2883 5.82701 16.9892 5.4111 16.5849 5.11762C16.1806 4.82413 15.6925 4.66866 15.193 4.67421H11.993L11.022 1.64616C10.8702 1.16841 10.5703 0.751395 10.1658 0.455454C9.76128 0.159513 9.27314 0 8.772 0C8.27086 0 7.78272 0.159513 7.37823 0.455454C6.97373 0.751395 6.67385 1.16841 6.522 1.64616L5.557 4.67421H2.357C1.8592 4.67506 1.3744 4.83328 0.971874 5.12627C0.56935 5.41926 0.269703 5.83203 0.115748 6.3056C-0.0382071 6.77916 -0.0385908 7.28929 0.114651 7.76309C0.267894 8.23688 0.56692 8.6501 0.969002 8.9437L3.569 10.8444L2.58 13.9094C2.42606 14.3851 2.42693 14.8974 2.58247 15.3725C2.73802 15.8477 3.04022 16.2612 3.44561 16.5537C3.851 16.8461 4.33867 17.0024 4.83847 17C5.33827 16.9976 5.82443 16.8367 6.227 16.5403L8.774 14.6647L11.322 16.5383C11.7243 16.8346 12.2102 16.9955 12.7098 16.998C13.2094 17.0005 13.6968 16.8444 14.1021 16.5522C14.5074 16.26 14.8095 15.8467 14.9651 15.3718C15.1207 14.8969 15.1217 14.3849 14.968 13.9094L13.979 10.8444L16.584 8.9437C16.9905 8.65345 17.2927 8.23999 17.446 7.76453C17.5992 7.28907 17.5954 6.77688 17.435 6.30378H17.438ZM15.723 7.76129L12.693 9.97906C12.5684 10.07 12.4757 10.198 12.4281 10.3447C12.3805 10.4915 12.3805 10.6496 12.428 10.7963L13.581 14.3616C13.6383 14.5423 13.637 14.7365 13.5775 14.9165C13.5179 15.0964 13.4031 15.253 13.2494 15.3639C13.0957 15.4748 12.9109 15.5343 12.7214 15.5339C12.5319 15.5336 12.3473 15.4734 12.194 15.3619L9.212 13.1612C9.08643 13.069 8.93475 13.0193 8.779 13.0193C8.62326 13.0193 8.47157 13.069 8.346 13.1612L5.364 15.3619C5.21075 15.4746 5.02577 15.5358 4.83559 15.5368C4.64541 15.5377 4.45981 15.4784 4.30543 15.3673C4.15105 15.2562 4.03582 15.099 3.97628 14.9183C3.91673 14.7377 3.91594 14.5428 3.974 14.3616L5.13 10.7963C5.17754 10.6496 5.17751 10.4915 5.12992 10.3447C5.08233 10.198 4.98962 10.07 4.865 9.97906L1.83 7.76129C1.67873 7.64868 1.56663 7.49139 1.50953 7.31161C1.45244 7.13184 1.45323 6.93867 1.5118 6.75937C1.57036 6.58007 1.68375 6.42371 1.83594 6.31234C1.98813 6.20098 2.17145 6.14025 2.36 6.13872H6.093C6.24851 6.13938 6.40019 6.09048 6.52605 5.99911C6.65191 5.90774 6.74542 5.77865 6.793 5.63055L7.922 2.09431C7.98142 1.91455 8.09597 1.75811 8.24938 1.64722C8.40279 1.53633 8.58724 1.47664 8.7765 1.47664C8.96577 1.47664 9.15022 1.53633 9.30362 1.64722C9.45703 1.75811 9.57158 1.91455 9.631 2.09431L10.765 5.63055C10.8126 5.77865 10.9061 5.90774 11.032 5.99911C11.1578 6.09048 11.3095 6.13938 11.465 6.13872H15.193C15.3816 6.14025 15.5649 6.20098 15.7171 6.31234C15.8693 6.42371 15.9826 6.58007 16.0412 6.75937C16.0998 6.93867 16.1006 7.13184 16.0435 7.31161C15.9864 7.49139 15.8743 7.64868 15.723 7.76129V7.76129Z" />
-                          </svg>
-                          <p className="text-sm font-medium">Rating</p>
-                        </div>
-                      </Link>
-                    </li> */}
                     <li className="">
                       <Link to={"/users"}>
                         <div
                           className={`px-3 py-[14px] ${
-                            location.pathname === "/users"
+                            location.pathname === "/users" || location.pathname === "/edit-user" || location.pathname === "/add-user"
                               ? "text-secondary-300 bg-primary-100"
                               : "text-white"
                           } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -444,7 +387,8 @@ const Sidebar = (props) => {
                             <path d="M6.375 9.91675C4.68481 9.9186 3.06438 10.5908 1.86924 11.786C0.674098 12.9811 0.00185284 14.6016 0 16.2917C0 16.4797 0.0746452 16.6599 0.207515 16.7927C0.340384 16.9256 0.520594 17.0002 0.7085 17.0002C0.896406 17.0002 1.07662 16.9256 1.20949 16.7927C1.34235 16.6599 1.417 16.4797 1.417 16.2917C1.417 15.6406 1.54526 14.9958 1.79444 14.3942C2.04363 13.7926 2.40887 13.246 2.86931 12.7856C3.32975 12.3251 3.87637 11.9599 4.47796 11.7107C5.07956 11.4615 5.72434 11.3332 6.3755 11.3332C7.02666 11.3332 7.67144 11.4615 8.27304 11.7107C8.87463 11.9599 9.42125 12.3251 9.88169 12.7856C10.3421 13.246 10.7074 13.7926 10.9566 14.3942C11.2057 14.9958 11.334 15.6406 11.334 16.2917C11.334 16.4797 11.4086 16.6599 11.5415 16.7927C11.6744 16.9256 11.8546 17.0002 12.0425 17.0002C12.2304 17.0002 12.4106 16.9256 12.5435 16.7927C12.6764 16.6599 12.751 16.4797 12.751 16.2917C12.7491 14.6014 12.0768 12.9808 10.8814 11.7856C9.68605 10.5905 8.06536 9.91834 6.375 9.91675Z" />
                           </svg>
                           <p className="text-sm font-medium">Users</p>
-                          <p className={`${location.pathname === '/users' ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",borderRadius: "50%",fontSize:10,opacity:0.4,display:"center"}} >
+                          <p className={`${location.pathname === '/users' || location.pathname === "/edit-user" || location.pathname === "/add-user"
+                           ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",borderRadius: "50%",fontSize:10,display:"center"}} >
                             {users.length}
                             </p>
                         </div>
@@ -454,7 +398,7 @@ const Sidebar = (props) => {
                       <Link to={"/news"}>
                         <div
                           className={`px-3 py-[14px] ${
-                            location.pathname === "/news"
+                            location.pathname === "/news" || location.pathname === '/add-news' || location.pathname === "/edit-news"
                               ? "text-secondary-300 bg-primary-100"
                               : "text-white"
                           } rounded flex items-center gap-3 hover:text-secondary-300 hover:bg-primary-100 transition-all duration-300`}
@@ -470,7 +414,8 @@ const Sidebar = (props) => {
                             <path d="M10.5 10.7826C10.5 10.9705 10.4262 11.1507 10.295 11.2835C10.1637 11.4163 9.98564 11.491 9.79999 11.491H4.19999C4.01434 11.491 3.8363 11.4163 3.70502 11.2835C3.57375 11.1507 3.5 10.9705 3.5 10.7826C3.5 10.5948 3.57375 10.4146 3.70502 10.2818C3.8363 10.1489 4.01434 10.0743 4.19999 10.0743H9.79999C9.98564 10.0743 10.1637 10.1489 10.295 10.2818C10.4262 10.4146 10.5 10.5948 10.5 10.7826ZM7.69999 12.9076H4.19999C4.01434 12.9076 3.8363 12.9823 3.70502 13.1151C3.57375 13.2479 3.5 13.4281 3.5 13.616C3.5 13.8038 3.57375 13.984 3.70502 14.1168C3.8363 14.2497 4.01434 14.3243 4.19999 14.3243H7.69999C7.88564 14.3243 8.06369 14.2497 8.19496 14.1168C8.32624 13.984 8.39999 13.8038 8.39999 13.616C8.39999 13.4281 8.32624 13.2479 8.19496 13.1151C8.06369 12.9823 7.88564 12.9076 7.69999 12.9076ZM14 8.29285V14.3243C13.9989 15.2633 13.6298 16.1635 12.9736 16.8274C12.3175 17.4913 11.4279 17.8648 10.5 17.866H3.5C2.57208 17.8648 1.68249 17.4913 1.02635 16.8274C0.370217 16.1635 0.0011115 15.2633 0 14.3243V4.40765C0.0011115 3.46868 0.370217 2.5685 1.02635 1.90455C1.68249 1.24061 2.57208 0.867108 3.5 0.865983H6.66049C7.30422 0.864307 7.9419 0.991774 8.53665 1.24102C9.13139 1.49026 9.67142 1.85633 10.1255 2.31807L12.5643 4.78731C13.0208 5.24648 13.3828 5.79276 13.6293 6.3945C13.8757 6.99624 14.0017 7.64148 14 8.29285ZM9.13569 3.31965C8.91539 3.10372 8.66804 2.91797 8.39999 2.76715V5.82431C8.39999 6.01217 8.47374 6.19234 8.60501 6.32518C8.73629 6.45802 8.91434 6.53264 9.09999 6.53264H12.1212C11.9721 6.26149 11.7882 6.01142 11.5745 5.7889L9.13569 3.31965ZM12.6 8.29285C12.6 8.17598 12.5776 8.06406 12.5671 7.94931H9.09999C8.54303 7.94931 8.00889 7.72543 7.61507 7.32691C7.22124 6.9284 6.99999 6.3879 6.99999 5.82431V2.31594C6.88659 2.30532 6.77529 2.28265 6.66049 2.28265H3.5C2.94304 2.28265 2.4089 2.50653 2.01507 2.90505C1.62125 3.30356 1.4 3.84406 1.4 4.40765V14.3243C1.4 14.8879 1.62125 15.4284 2.01507 15.8269C2.4089 16.2254 2.94304 16.4493 3.5 16.4493H10.5C11.0569 16.4493 11.5911 16.2254 11.9849 15.8269C12.3787 15.4284 12.6 14.8879 12.6 14.3243V8.29285Z" />
                           </svg>
                           <p className="text-sm font-medium">News</p>
-                          <p className={`${location.pathname === '/news' ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[9px] text-xl font-bold`} style={{marginLeft:"45%",borderRadius: "50%",fontSize:10,opacity:0.4,display:"center"}} >
+                          <p className={`${location.pathname === '/news' || location.pathname === '/add-news' || location.pathname === "/edit-news"
+                            ?  '  bg-primary-200 text-secondary-300' : 'bg-primary-100 text-white'} rounded-full px-[9px] text-xl font-bold`} style={{marginLeft:"45%",borderRadius: "50%",fontSize:10,display:"center"}} >
                             {news.length}
                           </p>
 
@@ -518,7 +463,7 @@ const Sidebar = (props) => {
                             <div className="w-2 h-2 border border-white rounded-full" />
                           )}
                           <p className="text-sm font-medium">Quiz</p>
-                          <p className={`bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10,opacity:0.4}} >
+                          <p className={`bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10}} >
                             {quizCategories.length}
                           </p>         
                         </div>
@@ -535,7 +480,7 @@ const Sidebar = (props) => {
                             <div className="w-2 h-2 border border-white rounded-full" />
                           )}
                           <p className="text-sm font-medium">News</p>
-                          <p className={` bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10,opacity:0.4}} >
+                          <p className={` bg-primary-100 rounded-full px-[11px] text-xl font-bold mr-[8px]`} style={{marginLeft:"42%",fontSize:10}} >
                             {newsCategories.length}
                           </p>         
                         </div>

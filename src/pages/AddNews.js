@@ -90,7 +90,7 @@ export default function AddNews() {
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Title</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter title
+                Enter Quiz title
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
@@ -121,25 +121,9 @@ export default function AddNews() {
               />
             </div>
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
-              <label className="">Answer</label>
-              <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter answer
-              </p>
-            </div>
-            <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
-              <Input
-                required
-                placeholder={"Type something ..."}
-                value={answertext}
-                onChange={(e) => {
-                  setAnswertext(e.target.value);
-                }}
-              />
-            </div>
-            <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Thumbnail</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
-                Upload thumbnail
+                Upload image of your quiz
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
@@ -149,6 +133,7 @@ export default function AddNews() {
                 onChange={async (e) => {
                   setSelectedImage(e.target.files[0]);
                 }}
+                placeholder={"Upload Thumbnail"}
               />
             </div>
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
@@ -174,13 +159,13 @@ export default function AddNews() {
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Author</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter the author
+                Enter author Name
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
               <Input
                 required
-                placeholder={"Type something ..."}
+                placeholder={"Add Author"}
                 value={author}
                 onChange={(e) => {
                   setAuthor(e.target.value);
@@ -196,15 +181,14 @@ export default function AddNews() {
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
               <Input
                 required
-                placeholder={"Type something ..."}
+                placeholder={"Add Date"}
                 value={date}
-                onChange={(e) => {
-                  setDate(e.target.value);
-                }}
+                onChange={(e) => setDate(e.target.value)}
+                type={"date"}
               />
-              <p className="mt-1 text-sm text-white text-opacity-50">
+              {/* <p className="mt-1 text-sm text-white text-opacity-50">
                 Format (MM/DD/YYYY)
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="hidden xl:flex mt-16 mb-8 gap-8">

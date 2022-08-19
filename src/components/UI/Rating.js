@@ -22,7 +22,7 @@ export default function Rating({ isEditable, rating, setRating }) {
               onMouseLeave={() => isEditable && setHover(null)}
             >
               <svg
-                className={`w-5 h-5 text-yellow-500 mr-1
+                className={`w-5 h-5 text-gold mr-1
                 ${isEditable && "cursor-pointer"}
                 ${
                   ratingValue <= (hover || rating)

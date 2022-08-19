@@ -73,15 +73,8 @@ export default function EditQuiz() {
       <section>
         <div className="mt-6 sm:mt-0 text-end">
           <form className="relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
-            <input
-              type="text"
-              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-t-0 border-l-0 border-r-0 border-b-2 outline-none ring-0 focus:border-b-primary-dark focus:border-b-2 focus:ring-0"
-              placeholder="Search"
-              value={filterValue}
-              onChange={(e) => setFilterValue(e.target.value)}
-            />
-            <svg
-              className="object-contain w-4 h-4 absolute right-2 text-inherit "
+          <svg
+              className="object-contain w-4 h-4 text-inherit "
               width="19"
               height="19"
               viewBox="0 0 19 19"
@@ -94,6 +87,14 @@ export default function EditQuiz() {
                 fill="white"
               />
             </svg>
+            <input
+              type="text"
+              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-0 outline-none ring-0 focus:ring-0"
+              placeholder="Search ..."
+              value={filterValue}
+              onChange={(e) => setFilterValue(e.target.value)}
+            />
+           
           </form>
         </div>
         <div className="my-8 sm:flex items-center justify-between w-full">
@@ -120,7 +121,7 @@ export default function EditQuiz() {
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Quiz Title</label>
               <p className="mt-1 sm:mt-2 text-xs text-white text-opacity-50">
-                Enter quiz title
+                Enter Quiz Title
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
@@ -135,7 +136,7 @@ export default function EditQuiz() {
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
               <label className="">Paragraph</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter a paragraph upto 500 characters
+                Enter Paragraph up to 500 characters
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
@@ -190,6 +191,7 @@ export default function EditQuiz() {
                 onChange={async (e) => {
                   setSelectedImage(e.target.files[0]);
                 }}
+                placeholder={"Upload Image"}
               />
               <p className="mt-1 text-white text-sm text-opacity-70">
                 (Leave empty if you don't wish to change the image)
@@ -232,7 +234,7 @@ export default function EditQuiz() {
               </div>
               <TextArea
                 rows={6}
-                placeholder={"Type something ..."}
+                placeholder={"Comment here ..."}
                 value={comment}
                 onChange={(e) => {
                   setComment(e.target.value);

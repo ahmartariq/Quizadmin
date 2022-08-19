@@ -44,7 +44,7 @@ export default function CategoriesNews() {
   const menu = [
     { name: "#", col: "2", isSortable: false },
     { name: "Image", value: "name", col: "7", isSortable: true },
-    { name: "Action", col: "3", isSortable: false, xAxis: "center" },
+    { name: "Activity", col: "3", isSortable: false, xAxis: "center" },
   ];
 
   useEffect(() => {
@@ -78,16 +78,10 @@ export default function CategoriesNews() {
     <div className="w-full min-h-screen sm:max-w-screen-2xl px-6 sm:px-8 xl:px-0 xl:py-6 sm:mx-auto ">
       <div className="">
         <div className="hidden xl:block mt-6 sm:mt-0 text-end">
-          <form className="relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
-            <input
-              type="text"
-              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-t-0 border-l-0 border-r-0 border-b-2 outline-none ring-0 focus:border-b-primary-dark focus:border-b-2 focus:ring-0"
-              placeholder="Search"
-              value={filter}
-              onChange={searchtext.bind(this)} 
-            />
+          <form className="pl-10 relative flex items-center md:flex-row w-full sm:w-fit md:space-x-3 md:space-y-0 ">
+            
             <svg
-              className="object-contain w-4 h-4 absolute right-2 text-inherit "
+              className="object-contain w-4 h-4 text-inherit "
               width="19"
               height="19"
               viewBox="0 0 19 19"
@@ -100,10 +94,17 @@ export default function CategoriesNews() {
                 fill="white"
               />
             </svg>
+            <input
+              type="text"
+              className="text-white py-3 pl-2 pr-8 bg-transparent w-full sm:w-fit border-0 outline-none ring-0 focus:ring-0"
+              placeholder="Search ..."
+              value={filter}
+              onChange={searchtext.bind(this)} 
+            />
           </form>
         </div>
         <div className="my-8 space-y-4 xl:space-y-0 xl:flex items-center justify-between w-full">
-          <div className="mb-6 sm:mb-0 flex items-center">
+          <div className="pl-10 mb-6 sm:mb-0 flex items-center">
             <svg
               className="w-8 h-8 text-secondary-300"
               viewBox="0 0 34 34"
@@ -147,8 +148,8 @@ export default function CategoriesNews() {
             </div>
           </div>
         </div>
-        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-600 w-full h-[70vh] shadow-2xl">
-          <div className="xl:w-full py-4 px-3 sm:px-4 w-full grid grid-cols-12 text-base text-left bg-primary-100">
+        <div className="w-full">
+          <div className="xl:w-full py-6 px-3 sm:px-4 w-full grid grid-cols-12 text-base text-left bg-primary-100">
             {menu.map((item) => {
               return (
                 <h3
@@ -172,7 +173,7 @@ export default function CategoriesNews() {
                         operator === "descending"
                           ? "rotate-180"
                           : operator === null
-                          ? "opacity-50"
+                          ? "opacity-100"
                           : "rotate-0 opacity-100"
                       } `}
                       viewBox="0 0 8 5"
@@ -187,7 +188,7 @@ export default function CategoriesNews() {
                   ) : (
                     item.isSortable && (
                       <svg
-                        className={`h-2 w-2 opacity-50`}
+                        className={`h-2 w-2 opacity-100`}
                         viewBox="0 0 8 5"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -203,12 +204,12 @@ export default function CategoriesNews() {
               );
             })}
           </div>
-          <div className="xl:w-full h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-600">
+          <div className="w-full">
             {currentData.map((category) => {
               return (
                 <div
                   key={category.id}
-                  className={`w-full grid grid-cols-12 text-left hover:bg-primary-100 text-sm sm:text-base px-3 py-3 sm:px-4 sm:py-2 rounded
+                  className={`w-full grid grid-cols-12 text-left hover:bg-primary-100 text-sm sm:text-base px-3 py-6 sm:px-4 rounded
                     group border-b border-b-primary-100 text-secondary-100 items-center`}
                 >
                   <div className="col-span-2 flex items-center">

@@ -125,9 +125,9 @@ export default function AddQuiz() {
               />
             </div>
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
-              <label className="">Answer</label>
+              <label className="">Answer Text</label>
               <p className="mt-2 text-xs text-white text-opacity-50">
-                Enter answer
+                Enter Answer Text
               </p>
             </div>
             <div className="col-span-12 sm:col-span-7 pb-6 sm:pb-8 border-b border-b-primary-100">
@@ -153,6 +153,7 @@ export default function AddQuiz() {
                 onChange={async (e) => {
                   setSelectedImage(e.target.files[0]);
                 }}
+                placeholder={"Upload Image"}
               />
             </div>
             <div className="col-span-12 sm:col-span-5 sm:pb-8 sm:border-b sm:border-b-primary-100">
